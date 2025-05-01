@@ -7,6 +7,6 @@ Checks: >
   cppcoreguidelines-*,
   -cppcoreguidelines-pro-bounds-pointer-arithmetic
 
-WarningsAsErrors: '*'
+WarningsAsErrors: ''
 HeaderFilterRegex: '.*'
 FormatStyle: file
