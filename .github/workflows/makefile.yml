@@ -23,6 +23,9 @@ jobs:
     - name: Run valgrind 
       run: make valgrind
 
+    - name: Show valgrind result
+      run: cat valgrind_output.log
+
     - name: Run cppcheck
       run: make cppcheck
 
