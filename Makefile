@@ -31,11 +31,6 @@ bhaskara.o: bhaskara.c
 valgrind:
 	valgrind --leak-check=full --track-origins=yes ./trusty_reflection.out < valgrind_test_input.txt > valgrind_output.log 2>&1
 
-coverage:
-	./trusty_reflection.out < valgrind_test_input.txt
-	gcovr --exclude-directories tests/ --branches --txt > coverage.txt
-	gcovr --exclude-directories tests/ --branches --html --html-details -o coverage.html
-
 clean:
 	rm -f *.o
 	rm -f *.out
