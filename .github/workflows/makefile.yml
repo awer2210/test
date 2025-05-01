@@ -19,7 +19,13 @@ jobs:
     
     - name: Install gcovr
       run: pip install gcovr
-      
+
+    - name: Run coverage
+      run: make coverage
+
+    - name: Show coverage summary
+      run: cat coverage.txt
+ 
     - name: Run build
       run: make build
       
