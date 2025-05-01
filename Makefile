@@ -28,6 +28,9 @@ trusty_reflection.o: trusty_reflection.c
 bhaskara.o: bhaskara.c
 	$(CC) $(CFLAGS) -c -o bhaskara.o bhaskara.c
 
+valgrind:
+	valgrind --leak-check=full --track-origins=yes ./trusty_reflection.out < valgrind_test_input.txt > valgrind_output.log 2>&1
+
 clean:
 	rm -f *.o
 	rm -f *.out
