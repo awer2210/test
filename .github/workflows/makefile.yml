@@ -29,14 +29,15 @@ jobs:
     - name: Show valgrind result
       run: cat valgrind_output.log
       
-    - name: Run coverage
-      run: make coverage
-      
+   
     - name: Run cppcheck
       run: make cppcheck
 
     - name: Show cppcheck results
       run: cat cppcheck.log || true
-
+      
+    - name: Run coverage
+      run: make coverage
+      
     - name: Show coverage summary
       run: cat coverage.txt
