@@ -33,8 +33,8 @@ valgrind:
 
 coverage:
 	./trusty_reflection.out < valgrind_test_input.txt || echo "Coverage failed with exit code $$?"
-    	gcov --exclude-directories tests/ --branches --txt > coverage.txt
-	gcov --exclude-directories tests/ --branches --html --html-details -o coverage.html
+    	gcovr --exclude-directories tests/ --branches --txt > coverage.txt
+	gcovr --exclude-directories tests/ --branches --html --html-details -o coverage.html
 
 clean:
 	rm -f *.o
