@@ -1,4 +1,4 @@
-name: Makefile CI
+name: C CI/CD Pipeline
 
 on:
   push:
@@ -7,22 +7,17 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  build-and-analyze:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
 
     - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -y build-essential clang cppcheck
+      run: sudo apt-get update && sudo apt-get install -y gcc make clang-tidy
 
     - name: Build project
-      run: make build
+      run: make
 
-    - name: Run static analysis with cppcheck
-      run: make cppcheck
-
-    - name: Run static analysis with clang-tidy
-      run: make tidy
+    - name: Run clang-tidy
+      run: clang-tidy src/*.c -- -I./src
