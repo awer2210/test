@@ -36,7 +36,9 @@ jobs:
       run: cat cppcheck.log || true
       
     - name: Run coverage
-      run: make coverage
+      run: |
+        make clean
+        make coverage
 
     - name: Show coverage summary
       run: cat coverage.txt
