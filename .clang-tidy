@@ -1,3 +1,12 @@
-Checks: 'clang-analyzer-*,bugprone-*,performance-*,portability-*'
+Checks: >
+  clang-analyzer-*,
+  bugprone-*,
+  performance-*,
+  readability-*,
+  portability-*,
+  cppcoreguidelines-*,
+  -cppcoreguidelines-pro-bounds-pointer-arithmetic
+
 WarningsAsErrors: '*'
-HeaderFilterRegex: 'src/.*'
+HeaderFilterRegex: '.*'
+FormatStyle: file
