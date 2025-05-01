@@ -1,0 +1,28 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y build-essential clang cppcheck
+
+    - name: Build project
+      run: make build
+
+    - name: Run static analysis with cppcheck
+      run: make cppcheck
+
+    - name: Run static analysis with clang-tidy
+      run: make tidy
